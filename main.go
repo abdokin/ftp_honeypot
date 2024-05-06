@@ -28,15 +28,12 @@ func main() {
 	fmt.Println("FTP Server Listening on :21")
 
 	for {
-		// Accept incoming connection
 		conn, err := listener.Accept()
 		if err != nil {
 			fmt.Println("Error accepting:", err.Error())
 			continue
 		}
 		fmt.Println("New connection accepted.")
-
-		// Handle connection in a new goroutine
 		go handleConnection(conn)
 	}
 }
